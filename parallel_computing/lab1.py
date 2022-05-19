@@ -99,8 +99,8 @@ if __name__ == '__main__':
     sum_par = 0
     sum_ser = 0
 
-    for i in range(3,200):
-        for j in range(6, 8):
+    for i in range(3,500):
+        for j in range(2, 8):
             matrix1 = fill_in_matrix(i)
             matrix2 = matrix1  
             t_par = parallel_execution(NUMBER_OF_WORKERS, i, matrix1)
