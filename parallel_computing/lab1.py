@@ -90,24 +90,21 @@ def parallel_execution(NUMBER_OF_WORKERS, SIZE, mat):
 
     
 if __name__ == '__main__':
-    N = 10
-    NUMBER_OF_WORKERS = 3
-
-    matrix1 = fill_in_matrix(N)
-    matrix2 = matrix1
 
     sum_par = 0
     sum_ser = 0
 
-    for i in range(3,500):
-        for j in range(2, 8):
-            matrix1 = fill_in_matrix(i)
-            matrix2 = matrix1  
-            t_par = parallel_execution(NUMBER_OF_WORKERS, i, matrix1)
-            sum_par += t_par
-            t_ser = serial_calc(matrix2, i)
-            sum_ser += t_ser
+    for _ in range(10):
+        i = random.randint(3, 1000)
+        j = random.randint(2, 8)
+        print(f"\n{i}-size, {j}-number of workers")
+        matrix1 = fill_in_matrix(i)
+        matrix2 = matrix1  
+        t_par = parallel_execution(j, i, matrix1)
+        sum_par += t_par
+        t_ser = serial_calc(matrix2, i)
+        sum_ser += t_ser
     
-    print(sum_par)
-    print(sum_ser)
+    print(f"\nTotal time of parallel execution {sum_par}")
+    print(f"Total time of serial execution {sum_ser}")
    
